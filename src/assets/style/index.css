@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* Variables pour le style */
 /* BANNIERE */
 .Section1 {
   height: 223px;
@@ -124,7 +125,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 35px;
   margin-bottom: 25px;
 }
 .header nav {
@@ -173,128 +174,91 @@
   }
 }
 
-/* COLLAPSE */
-/* Collapse - A propos */
-.content {
+/*COLLAPSES */
+/* Variables de style pour réutilisation */
+/* Styles communs pour les collapses */
+.collapse-common, .collapse-logement, .collapse-about {
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.collapse-common .collapse-header, .collapse-logement .collapse-header, .collapse-about .collapse-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #ff6060;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative; /* Pour que le header ne soit pas affecté par l'ouverture */
+}
+.collapse-common .collapse-header h3, .collapse-logement .collapse-header h3, .collapse-about .collapse-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: white;
+}
+.collapse-common .collapse-header .arrow, .collapse-logement .collapse-header .arrow, .collapse-about .collapse-header .arrow {
+  transition: transform 0.3s ease;
+  font-size: 18px;
+  color: white;
+  transform: rotate(90deg);
+}
+.collapse-common .collapse-header .open, .collapse-logement .collapse-header .open, .collapse-about .collapse-header .open {
+  transform: rotate(-90deg);
+}
+.collapse-common .collapse-content, .collapse-logement .collapse-content, .collapse-about .collapse-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, padding 0.6s ease;
+  padding: 0 15px;
+  background-color: rgba(246, 246, 246, 0.4509803922);
+  border: 1px solid rgba(246, 246, 246, 0.4509803922);
+}
+.collapse-common .collapse-content p, .collapse-logement .collapse-content p, .collapse-about .collapse-content p, .collapse-common .collapse-content ul, .collapse-logement .collapse-content ul, .collapse-about .collapse-content ul {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px 0;
+  list-style-type: none;
+}
+.collapse-common .collapse-content.open, .collapse-logement .collapse-content.open, .collapse-about .collapse-content.open {
+  max-height: 500px;
+  padding: 15px;
+}
+
+/* Collapse pour la page Apropos */
+.content-abouts {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centre les éléments horizontalement */
-  justify-content: center; /* Centre les éléments verticalement si nécessaire */
+  align-items: center;
+  margin-top: 25px;
 }
 
 .collapse-about {
-  border: 1px solid white;
-  border-radius: 5px;
-  width: 100%;
-  margin-bottom: 10px;
-  overflow: hidden;
   max-width: 1023px;
 }
-.collapse-about .collapse-header {
+
+/* Collapse pour la page Logement */
+.content-logements {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 10px 15px;
-  background-color: #ff6060;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.collapse-about .collapse-header h3 {
-  margin: 0;
-  font-size: 18px;
-  color: white;
-}
-.collapse-about .collapse-header .arrow {
-  transition: transform 0.3s ease;
-  font-size: 18px;
-  color: white;
-  transform: rotate(90deg);
-}
-.collapse-about .collapse-header .open {
-  transform: rotate(-90deg);
-}
-.collapse-about .collapse-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease, padding 0.6s ease;
-  padding: 0 15px;
-  background-color: rgba(246, 246, 246, 0.4509803922);
-  border: 1px solid rgba(246, 246, 246, 0.4509803922);
-}
-.collapse-about .collapse-content p {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  padding: 10px 0;
-}
-.collapse-about .collapse-content.open {
-  max-height: 500px;
-  padding: 15px;
-  transition: max-height 0.6s ease, padding 0.6s ease;
-}
-
-/* COLLAPSE - LOGEMENT */
-.logement {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
+  align-items: flex-start; /* Aligne les headers en haut */
+  gap: 60px;
   width: 100%;
-  margin-top: 15px;
-}
-.logement .collapse-logement {
-  flex: 1;
-  border: 1px solid white;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-.logement .collapse-logement .collapse-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 15px;
-  background-color: #ff6060;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.logement .collapse-logement .collapse-header h3 {
-  margin: 0;
-  font-size: 18px;
-  color: white;
-}
-.logement .collapse-logement .collapse-header .arrow {
-  transition: transform 0.3s ease;
-  font-size: 18px;
-  color: white;
-  transform: rotate(90deg);
-}
-.logement .collapse-logement .collapse-header .open {
-  transform: rotate(-90deg);
-}
-.logement .collapse-logement .collapse-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease, padding 0.6s ease;
-  padding: 0 15px;
-  background-color: rgba(246, 246, 246, 0.4509803922);
-  border: 1px solid rgba(246, 246, 246, 0.4509803922);
-}
-.logement .collapse-logement .collapse-content p {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  padding: 10px 0;
-}
-.logement .collapse-logement .collapse-content.open {
-  max-height: 500px;
-  padding: 15px;
 }
 
+.collapse-logement {
+  flex: 1; /* Les éléments prennent la même taille */
+}
+
+/* Responsive - Affichage en colonne sur mobile */
 @media (max-width: 375px) {
-  .logement {
-    flex-direction: column;
+  .content-logements {
+    flex-direction: column; /* Affiche en colonne sur mobile */
   }
 }
+/* CARDS */
 .logement-card {
   position: relative;
   width: 340px;
@@ -324,6 +288,112 @@
     width: 325px;
     height: 255px;
   }
+}
+
+/* CARROUSEL */
+/* Taille des flèches */
+/* Taille du texte du compteur */
+/* Styles communs pour les flèches */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+  /* Appliquer la taille via Material Icons */
+}
+.carousel-arrow .material-icons {
+  font-size: 6rem !important; /* Forcer la taille de l'icône */
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 415px;
+  overflow: hidden;
+  /* Flèche gauche */
+  /* Flèche droite */
+  /* Compteur */
+}
+.carousel .carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.carousel .left-arrow {
+  left: 10px;
+}
+.carousel .right-arrow {
+  right: 10px;
+  transform: translateY(-50%) rotate(180deg);
+}
+.carousel .carousel-counter {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+}
+
+/* Gestion des Tags */
+.content-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.tag {
+  background-color: #ff6060;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+  display: flex; /* Flexbox pour assurer que les tags prennent la même largeur */
+  justify-content: center; /* Centre le texte dans chaque tag */
+  align-items: center; /* Centre verticalement le texte */
+  flex: 1; /* Les tags prennent tous la même taille */
+  max-width: 150px; /* Facultatif : Limite la largeur maximale si souhaité */
+  min-width: 100px; /* Facultatif : Limite la largeur minimale si souhaité */
+  white-space: nowrap; /* Empêche le texte de s'étendre sur plusieurs lignes */
+}
+
+/* Gestion des etoiles */
+.content-rate {
+  display: flex;
+  gap: 5px;
+}
+.content-rate .star {
+  font-size: 24px;
+  color: #E3E3E3;
+}
+
+/* Nom et Visage du proprietaire */
+.host {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.host .host-name {
+  color: #ff6060;
+  font-size: 18px;
+  margin-right: 15px;
+  width: 93px;
+  text-align: right;
+  font-weight: 400;
+}
+.host .host-picture {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* LAYOUT */
@@ -444,110 +514,37 @@
     font-size: 14px;
   }
 }
+/* LOGEMENT */
 .logement {
-  /* Gestion des tags */
-  /* Styles pour les étoiles */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.logement .carousel {
-  position: relative;
-  width: 100%;
-  height: 415px;
-  overflow: hidden;
-}
-.logement .carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-.logement .carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: none;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 5rem;
-  z-index: 1;
-}
-.logement .left-arrow {
-  left: 10px;
-}
-.logement .right-arrow {
-  right: 10px;
-  transform: translateY(-50%) rotate(180deg);
-}
-.logement .logement-details section {
+
+.Tag-rate {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* Gestion du titre - localisation - nom et img */
+  width: 100%;
 }
-.logement .logement-details section .title-location h2 {
-  color: #FF6060;
-  font-size: 36px;
-  line-height: 51.34px;
-  font-weight: 500;
-  margin-bottom: 0;
+.Tag-rate .content-tags {
+  flex-grow: 1;
 }
-.logement .logement-details section .title-location p {
-  margin-top: 5px;
-  margin-bottom: 0;
-}
-.logement .logement-details section .info-proprio {
-  display: flex;
-  align-items: flex-end;
-}
-.logement .logement-details section .info-proprio h3 {
-  color: #FF6060;
-  width: 93px;
-  height: 52px;
-  font-size: 18px;
-  font-weight: normal;
-}
-.logement .logement-details section .info-proprio .img-name {
-  margin-bottom: 10px;
-}
-.logement article .name-image {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.logement .tags {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.logement .tags .tag {
-  background-color: #FF6060;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-grow: 1; /* Permet a tous les tags de prendre une taille egale */
-  min-width: 115px; /* Taille minimale pour eviter des tags trop petits */
-  white-space: nowrap;
-  font-weight: 700;
-}
-.logement .rating {
-  margin-top: 10px;
-}
-.logement .rating .star {
-  font-size: 40px;
-  color: #E3E3E3;
-  font-weight: 700;
-}
-.logement .rating .star.filled {
-  color: #FF6060;
+.Tag-rate .content-rate {
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
+@media (max-width: 375px) {
+  .Tag-rate {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .content-rate {
+    margin-left: 0;
+  }
+}
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;

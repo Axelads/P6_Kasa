@@ -1,38 +1,37 @@
-/* COLLAPSE */
-/* Collapse - A propos */
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centre les éléments horizontalement */
-  justify-content: center; /* Centre les éléments verticalement si nécessaire */
-}
+/*COLLAPSES */
+/* Variables de style pour réutilisation */
+$border-color: white;
+$background-color-collapse: #ff6060;
+$background-color-content: #f6f6f673;
+$font-size-header: 18px;
+$transition-timing: 0.6s ease;
 
-.collapse-about {
-  border: 1px solid white;
+/* Styles communs pour les collapses */
+.collapse-common {
+  border: 1px solid $border-color;
   border-radius: 5px;
-  width: 100%;
   margin-bottom: 10px;
   overflow: hidden;
-  max-width: 1023px;
 
   .collapse-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-    background-color: #ff6060;
+    background-color: $background-color-collapse;
     cursor: pointer;
     border-radius: 5px;
+    position: relative; /* Pour que le header ne soit pas affecté par l'ouverture */
 
     h3 {
       margin: 0;
-      font-size: 18px;
+      font-size: $font-size-header;
       color: white;
     }
 
     .arrow {
       transition: transform 0.3s ease;
-      font-size: 18px;
+      font-size: $font-size-header;
       color: white;
       transform: rotate(90deg);
     }
@@ -45,93 +44,56 @@
   .collapse-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.6s ease, padding 0.6s ease;
+    transition: max-height $transition-timing, padding $transition-timing;
     padding: 0 15px;
-    background-color: #F6F6F673;
-    border: 1px solid #F6F6F673;
+    background-color: $background-color-content;
+    border: 1px solid $background-color-content;
 
-    p {
+    p, ul {
       margin: 0;
       font-size: 16px;
       line-height: 1.5;
       padding: 10px 0;
+      list-style-type: none;
     }
   }
 
   .collapse-content.open {
     max-height: 500px;
     padding: 15px;
-    transition: max-height 0.6s ease, padding 0.6s ease;
   }
 }
 
-/* COLLAPSE - LOGEMENT */
-.logement {
+/* Collapse pour la page Apropos */
+.content-abouts {
   display: flex;
-  flex-direction: row;
-  gap: 15px;
-  width: 100%;
-  margin-top: 15px;
-
-  .collapse-logement {
-    flex: 1;
-    border: 1px solid white;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    overflow: hidden;
-
-    .collapse-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 15px;
-      background-color: #ff6060;
-      cursor: pointer;
-      border-radius: 5px;
-
-      h3 {
-        margin: 0;
-        font-size: 18px;
-        color: white;
-      }
-
-      .arrow {
-        transition: transform 0.3s ease;
-        font-size: 18px;
-        color: white;
-        transform: rotate(90deg);
-      }
-
-      .open {
-        transform: rotate(-90deg);
-      }
-    }
-
-    .collapse-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.6s ease, padding 0.6s ease;
-      padding: 0 15px;
-      background-color: #F6F6F673;
-      border: 1px solid #F6F6F673;
-
-      p {
-        margin: 0;
-        font-size: 16px;
-        line-height: 1.5;
-        padding: 10px 0;
-      }
-    }
-
-    .collapse-content.open {
-      max-height: 500px;
-      padding: 15px;
-    }
-  }
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
 }
 
+.collapse-about {
+  @extend .collapse-common; 
+  max-width: 1023px; 
+}
+
+/* Collapse pour la page Logement */
+.content-logements {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Aligne les headers en haut */
+  gap: 60px;
+  width: 100%; 
+}
+
+.collapse-logement {
+  @extend .collapse-common; 
+  flex: 1; /* Les éléments prennent la même taille */
+}
+
+/* Responsive - Affichage en colonne sur mobile */
 @media (max-width: 375px) {
-  .logement {
-    flex-direction: column;
+  .content-logements {
+    flex-direction: column; /* Affiche en colonne sur mobile */
   }
 }
