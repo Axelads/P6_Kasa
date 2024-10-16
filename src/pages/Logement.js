@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import logements from '../IDlogements';
 import Carrousel from '../composants/Carrousel';
+import TitleLocalisation from '../composants/TitleLocalisation';
 import Tags from '../composants/Tags';
 import Rate from '../composants/Rate';
 import Host from '../composants/Host';
@@ -21,7 +22,10 @@ const Logement = () => {
   return (
     <div className="logement">
         <Carrousel pictures={logement.pictures} />
-        <Host />
+        <section className="TitleHost">
+          <TitleLocalisation />
+          <Host />
+        </section>
       <div className="Tag-rate">    
         <Tags />
         <Rate />

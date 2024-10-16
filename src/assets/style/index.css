@@ -356,13 +356,13 @@
   border-radius: 10px;
   font-size: 14px;
   text-align: center;
-  display: flex; /* Flexbox pour assurer que les tags prennent la même largeur */
-  justify-content: center; /* Centre le texte dans chaque tag */
-  align-items: center; /* Centre verticalement le texte */
-  flex: 1; /* Les tags prennent tous la même taille */
-  max-width: 150px; /* Facultatif : Limite la largeur maximale si souhaité */
-  min-width: 100px; /* Facultatif : Limite la largeur minimale si souhaité */
-  white-space: nowrap; /* Empêche le texte de s'étendre sur plusieurs lignes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  max-width: 150px;
+  min-width: 100px;
+  white-space: nowrap;
 }
 
 /* Gestion des etoiles */
@@ -394,6 +394,18 @@
   height: 64px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.title-localisation h2 {
+  color: #ff6060;
+  font-weight: 400;
+  font-size: 36px;
+  margin-bottom: 0;
+}
+
+.title-localisation p {
+  font-size: 18px;
+  margin-top: 5px;
 }
 
 /* LAYOUT */
@@ -519,6 +531,11 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.TitleHost {
+  display: flex;
+  justify-content: space-between;
 }
 
 .Tag-rate {
