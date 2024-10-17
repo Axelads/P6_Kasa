@@ -1,22 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { Icon } from '@material-ui/core';
-import logements from '../IDlogements';
-import { useParams } from 'react-router-dom';
 
-const Carrousel = () => {
-  const { id } = useParams(); // Recuperer l'ID de l'URL
-  const logement = logements.find((logement) => logement.id === id); // Trouver le logement correspondant
-  const pictures = logement.pictures;
-
+const Carrousel = ({ pictures }) => { // Prend les images via les props
   const [currentIndex, setCurrentIndex] = useState(0); // Indice de l'image actuelle
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % pictures.length); // Passer à l'image suivante
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % pictures.length); // Passer a l'image suivante
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? pictures.length - 1 : prevIndex - 1 // Revenir à l'image précédente
+      prevIndex === 0 ? pictures.length - 1 : prevIndex - 1 // Revenir a l'image precedente
     );
   };
 
