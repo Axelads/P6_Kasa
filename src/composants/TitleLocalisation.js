@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import logements from '../IDlogements';
+import logements from '../assets/donnees/DataLogement';
 
 const TitleLocalisation = () => {
   const { id } = useParams(); 

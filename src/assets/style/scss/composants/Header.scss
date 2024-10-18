@@ -1,69 +1,80 @@
 /* HEADER */
 .header {
-    position: relative;
-    height: 68px;
-    overflow: hidden;
-    margin-left: 6.9%;
-    margin-right: 6.9%;
+  position: relative;
+  height: 68px;
+  overflow: hidden;
+  margin-left: 6.9%;
+  margin-right: 6.9%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 35px;
+  margin-bottom: 25px;
+
+  nav {
     display: flex;
     justify-content: space-between;
+    width: 100%;
     align-items: center;
-    margin-top: 35px;
-    margin-bottom: 25px;
-  
-    nav {
-      display: flex;
-      justify-content: space-between;
-      width: 100%; 
-      align-items: center;
-    }
-  
-    .imgLogoHeader {
-      width: 210px;
-      padding-left: 0;
-    }
-  
-    ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      gap: 20px; 
-      align-items: center;
-      margin-left: auto;
-    }
-  
-    li {
-      display: inline;
-      font-weight: 500;
-  
-      a {
-        text-decoration: none;
-        color: black;
-        font-size: 24px;
-        padding-bottom: 5px;
-        transition: border-bottom 0.3s ease;
-        font-family: 'Montserrat', sans-serif;
-  
-        &.active-link {
-          border-bottom: 1px solid black;
-          padding-bottom: 0;
-        }
-      }
-    }
-  
-    
-    @media (max-width: 375px) {
-      .header {
-        height: 47px; 
-      }
-  
-      .imgLogoHeader {
-        width: 145px; 
-      }
-  
-      li a {
-        font-size: 12px; 
+  }
+
+  .imgLogoHeader {
+    max-width: 210px;
+    width: auto;
+    height: auto;
+    padding-left: 0;
+    transition: max-width 0.3s ease; /* Transition pour que la réduction soit fluide */
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  li {
+    display: inline;
+    font-weight: 500;
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 24px;
+      padding-bottom: 5px;
+      transition: border-bottom 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+
+      &.active-link {
+        border-bottom: 1px solid black;
+        padding-bottom: 0;
       }
     }
   }
-  
+
+  @media (max-width: 500px) {
+    .imgLogoHeader {
+      max-width: 140px;
+    }
+
+    li a {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .header {
+      height: 47px;
+    }
+
+    .imgLogoHeader {
+      max-width: 145px;
+    }
+
+    li a {
+      font-size: 12px;
+    }
+  }
+}

@@ -20,3 +20,23 @@
       object-fit: cover;
     }
   }
+
+
+  @media (max-width: 375px) {
+  .host {
+    
+   .host-name {
+    display: flex;
+    text-align: right;
+    white-space: normal;
+    font-size: 12px;
+    margin-right: 5px;
+    width: auto;
+    }
+
+    .host-picture {
+      width: 32px;
+      height: 32px;
+    }
+  }
+} 

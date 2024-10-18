@@ -1,7 +1,7 @@
 import React from 'react';
 import Banniere from '../composants/Banniere';
 import Collapse from '../composants/Collapse';
-import Aboutinfo from '../assets/donnes/Aboutinfo';
+import Aboutinfo from '../assets/donnees/Aboutinfo';
 
 const Apropos = () => {
   return (

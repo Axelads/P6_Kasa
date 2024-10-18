@@ -1,27 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import logements from '../IDlogements';
+import logements from '../assets/donnees/DataLogement';
 import Carrousel from '../composants/Carrousel';
 import TitleLocalisation from '../composants/TitleLocalisation';
 import Tags from '../composants/Tags';
 import Rate from '../composants/Rate';
 import Host from '../composants/Host';
 import Collapse from '../composants/Collapse';
-import collapseLogement from '../../src//assets/donnes/CollapseLogement';
+import collapseLogement from '../assets/donnees/CollapseLogement';
 
 const Logement = () => {
-  const { id } = useParams(); // Récupérer l'ID du logement depuis l'URL
-  const navigate = useNavigate(); // Utilisé pour rediriger vers 404 si nécessaire
-  const logement = logements.find((logement) => logement.id === id); // Cherche le logement par ID
+  const { id } = useParams(); 
+  const navigate = useNavigate(); 
+  const logement = logements.find((logement) => logement.id === id); 
 
-  // Redirection vers la page 404 si l'ID n'est pas trouvé dans le fichier IDlogements
+  const [isMobileView, setIsMobileView] = useState(false); // Gère l'état de la vue mobile
+
   useEffect(() => {
     if (!logement) {
-      navigate("/404"); // Redirige vers la page 404 si l'ID est invalide ( changement de chemin avant c'etait "*")
+      navigate("/404"); 
     }
   }, [logement, navigate]);
 
-  // Si le logement n'existe pas, on ne rend rien (Obligation de cette ligne si non page blanche)
+  // Fonction pour vérifier la taille de l'écran
+  const handleResize = () => {
+    setIsMobileView(window.matchMedia("(max-width: 375px)").matches);
+  };
+
+  useEffect(() => {
+    // Vérifie la taille de l'écran au chargement
+    handleResize();
+
+    // Ajoute un écouteur d'événements pour détecter les changements de taille d'écran
+    window.addEventListener("resize", handleResize);
+
+    // Nettoie l'écouteur d'événements lors du démontage du composant
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Si le logement n'existe pas, on ne rend rien
   if (!logement) {
     return null;
   }
@@ -29,14 +46,32 @@ const Logement = () => {
   return (
     <div className="logement">
       <Carrousel pictures={logement.pictures} />
-      <section className="TitleHost">
-        <TitleLocalisation />
-        <Host />
-      </section>
-      <div className="Tag-rate">
-        <Tags />
-        <Rate />
-      </div>
+      
+      {/* Affichage pour Desktop ou Mobile */}
+      {isMobileView ? (
+        // Vue mobile
+        <>
+          <TitleLocalisation />
+          <Tags />
+          <div className="Tag-rate">
+            <Rate />
+            <Host />
+          </div>
+        </>
+      ) : (
+        // Vue Desktop
+        <>
+          <section className="TitleHost">
+            <TitleLocalisation />
+            <Host />
+          </section>
+          <div className="Tag-rate">
+            <Tags />
+            <Rate />
+          </div>
+        </>
+      )}
+      
       <div className="content-logements">
         {collapseLogement.map((info) => (
           <Collapse

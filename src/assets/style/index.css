@@ -135,8 +135,11 @@
   align-items: center;
 }
 .header .imgLogoHeader {
-  width: 210px;
+  max-width: 210px;
+  width: auto;
+  height: auto;
   padding-left: 0;
+  transition: max-width 0.3s ease; /* Transition pour que la réduction soit fluide */
 }
 .header ul {
   list-style: none;
@@ -162,12 +165,20 @@
   border-bottom: 1px solid black;
   padding-bottom: 0;
 }
+@media (max-width: 500px) {
+  .header .imgLogoHeader {
+    max-width: 140px;
+  }
+  .header li a {
+    font-size: 20px;
+  }
+}
 @media (max-width: 375px) {
   .header .header {
     height: 47px;
   }
   .header .imgLogoHeader {
-    width: 145px;
+    max-width: 145px;
   }
   .header li a {
     font-size: 12px;
@@ -243,19 +254,39 @@
 .content-logements {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Aligne les headers en haut */
+  align-items: flex-start;
   gap: 60px;
   width: 100%;
 }
 
 .collapse-logement {
-  flex: 1; /* Les éléments prennent la même taille */
+  flex: 1;
 }
 
-/* Responsive - Affichage en colonne sur mobile */
 @media (max-width: 375px) {
   .content-logements {
-    flex-direction: column; /* Affiche en colonne sur mobile */
+    flex-direction: column;
+    gap: 10px;
+  }
+  .collapse-logement {
+    width: 100%;
+  }
+  .collapse-header {
+    height: 30px !important;
+    padding: 0 5px !important;
+    line-height: 30px !important;
+  }
+  .collapse-header h3 {
+    font-size: 13px !important;
+    margin: 0;
+    margin-left: 5px;
+  }
+  .collapse-header .arrow {
+    margin-right: 5px !important;
+    font-size: 13px !important;
+  }
+  .collapse-content {
+    padding: 5px 15px;
   }
 }
 /* CARDS */
@@ -291,7 +322,7 @@
 }
 
 /* CARROUSEL */
-/* Taille des flèches */
+/* Taille des flèches par défaut */
 /* Taille du texte du compteur */
 /* Styles communs pour les flèches */
 .carousel-arrow {
@@ -301,10 +332,9 @@
   color: white;
   cursor: pointer;
   z-index: 1;
-  /* Appliquer la taille via Material Icons */
 }
 .carousel-arrow .material-icons {
-  font-size: 6rem !important; /* Forcer la taille de l'icône */
+  font-size: 6rem !important;
 }
 
 /* Carousel */
@@ -313,8 +343,6 @@
   width: 100%;
   height: 415px;
   overflow: hidden;
-  /* Flèche gauche */
-  /* Flèche droite */
   /* Compteur */
 }
 .carousel .carousel-image {
@@ -341,6 +369,17 @@
   margin-bottom: 15px;
 }
 
+@media (max-width: 375px) {
+  .carousel-arrow .material-icons {
+    font-size: 2rem !important;
+  }
+  .carousel-counter {
+    display: none; /* Cache le compteur en responsive */
+  }
+  .carousel {
+    max-height: 255px;
+  }
+}
 /* Gestion des Tags */
 .content-tags {
   display: flex;
@@ -365,16 +404,35 @@
   white-space: nowrap;
 }
 
+@media (max-width: 375px) {
+  .content-tags {
+    gap: 5px;
+  }
+  .tag {
+    max-width: 80px;
+    font-size: 10px;
+    padding: 5px 1px;
+  }
+}
 /* Gestion des etoiles */
 .content-rate {
   display: flex;
   gap: 5px;
+  margin-left: 0; /* Par défaut, pas de marge gauche */
 }
 .content-rate .star {
   font-size: 24px;
   color: #E3E3E3;
 }
 
+@media (max-width: 375px) {
+  .content-rate {
+    margin-left: 0;
+  }
+  .content-rate .star {
+    font-size: 18px;
+  }
+}
 /* Nom et Visage du proprietaire */
 .host {
   display: flex;
@@ -396,6 +454,20 @@
   object-fit: cover;
 }
 
+@media (max-width: 375px) {
+  .host .host-name {
+    display: flex;
+    text-align: right;
+    white-space: normal;
+    font-size: 12px;
+    margin-right: 5px;
+    width: auto;
+  }
+  .host .host-picture {
+    width: 32px;
+    height: 32px;
+  }
+}
 .title-localisation h2 {
   color: #ff6060;
   font-weight: 400;
@@ -408,6 +480,14 @@
   margin-top: 5px;
 }
 
+@media (max-width: 375px) {
+  .title-localisation h2 {
+    font-size: 18px;
+  }
+  .title-localisation p {
+    font-size: 14px;
+  }
+}
 /* LAYOUT */
 .layout {
   display: flex;
@@ -549,17 +629,58 @@
 }
 .Tag-rate .content-rate {
   flex-shrink: 0;
-  margin-left: auto;
 }
 
 @media (max-width: 375px) {
   .Tag-rate {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
   .content-rate {
     margin-left: 0;
+  }
+  .host {
+    text-align: right;
+    margin-left: auto;
+  }
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 body {
@@ -572,6 +693,12 @@ main {
   margin-right: 6.9%;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+@media (max-width: 375px) {
+  body {
+    max-width: 375px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

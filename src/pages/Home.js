@@ -1,5 +1,5 @@
 import React from 'react';
-import logements from '../IDlogements';
+import logements from '../assets/donnees/DataLogement';
 import Banniere from '../composants/Banniere';
 import Card from '../composants/Card';
 

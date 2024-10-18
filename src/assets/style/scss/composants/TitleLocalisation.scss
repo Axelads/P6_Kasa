@@ -10,3 +10,12 @@
     margin-top: 5px;
 }
 
+@media (max-width: 375px) {
+    .title-localisation h2 {
+        font-size: 18px;
+    }
+
+    .title-localisation p {
+        font-size: 14px;
+    }
+}

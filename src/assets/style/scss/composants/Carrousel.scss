@@ -1,7 +1,7 @@
 /* CARROUSEL */
 
 $arrow-color: white;
-$arrow-size: 6rem; /* Taille des flèches */
+$arrow-size: 6rem; /* Taille des flèches par défaut */
 $carousel-height: 415px;
 $counter-bg: rgba(0, 0, 0, 0.5);
 $counter-font-size: 1.5rem; /* Taille du texte du compteur */
@@ -15,9 +15,9 @@ $counter-font-size: 1.5rem; /* Taille du texte du compteur */
   cursor: pointer;
   z-index: 1;
 
-  /* Appliquer la taille via Material Icons */
+  
   .material-icons {
-    font-size: $arrow-size !important; /* Forcer la taille de l'icône */
+    font-size: $arrow-size !important;
   }
 }
 
@@ -35,12 +35,10 @@ $counter-font-size: 1.5rem; /* Taille du texte du compteur */
     border-radius: 10px;
   }
 
-  /* Flèche gauche */
   .left-arrow {
     left: 10px;
   }
 
-  /* Flèche droite */
   .right-arrow {
     right: 10px;
     transform: translateY(-50%) rotate(180deg);
@@ -56,5 +54,19 @@ $counter-font-size: 1.5rem; /* Taille du texte du compteur */
     font-size: $counter-font-size;
     padding: 5px 10px;
     margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  .carousel-arrow .material-icons {
+    font-size: 2rem !important; 
+  }
+
+  .carousel-counter {
+    display: none; /* Cache le compteur en responsive */
+  }
+
+  .carousel {
+    max-height: 255px;
   }
 }

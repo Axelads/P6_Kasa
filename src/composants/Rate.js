@@ -1,10 +1,10 @@
 import React from 'react';
 import { Icon } from '@material-ui/core';
-import logements from '../IDlogements';
+import logements from '../assets/donnees/DataLogement';
 import { useParams } from 'react-router-dom';
 
 const Rate = () => {
-  const { id } = useParams(); // Récupère l'ID du logement depuis l'URL
+  const { id } = useParams();
   const logement = logements.find((logement) => logement.id === id); // Trouve le logement correspondant
   const rating = logement ? logement.rating : 0; // Si le logement existe, utilise son rating, sinon 0
 

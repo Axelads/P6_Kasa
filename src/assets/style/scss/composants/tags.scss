@@ -21,3 +21,14 @@
     min-width: 100px; 
     white-space: nowrap;
   }
+
+  @media (max-width: 375px) {
+    .content-tags {
+      gap: 5px;
+    }
+    .tag {
+      max-width: 80px;
+      font-size: 10px;
+      padding: 5px 1px;
+    }
+  }

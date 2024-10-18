@@ -13,7 +13,7 @@
 // import des scss pages
 @import '../style/scss/Layout.scss';
 @import '../style/scss/pages/Home.scss';
-@import '../style/scss/pages/Apropos.scss';
+@import '../style/scss/pages/About.scss';
 @import '../style/scss/pages/NotFound.scss';
 @import '../style/scss/pages/Logement.scss';
 
@@ -30,4 +30,10 @@ main {
     margin-right: 6.9%;
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+@media (max-width: 375px) {
+    body {
+        max-width: 375px;
+    }
 }

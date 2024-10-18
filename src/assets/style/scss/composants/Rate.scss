@@ -1,10 +1,21 @@
 /* Gestion des etoiles */
 .content-rate {
-    display: flex;
-    gap: 5px; 
-  
+  display: flex;
+  gap: 5px;
+  margin-left: 0; /* Par défaut, pas de marge gauche */
+
+  .star {
+    font-size: 24px;
+    color: #E3E3E3;
+  }
+}
+
+@media (max-width: 375px) {
+  .content-rate {
+    margin-left: 0; 
+    
     .star {
-      font-size: 24px;
-      color: #E3E3E3; 
+      font-size: 18px; 
     }
   }
+}
