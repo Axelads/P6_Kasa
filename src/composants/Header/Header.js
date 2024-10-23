@@ -12,7 +12,7 @@ const Header = () => {
         <ul>
           <li>
             <NavLink 
-              to="/" 
+              to="/home" 
               className={({ isActive }) => (isActive ? "active-link" : "")}
             >
               Accueil

@@ -9,8 +9,8 @@ const Banniere = () => {
     const location = useLocation();
   
     return (
-      <div className={`Section1 ${location.pathname === '/' ? 'home-banner' : location.pathname === '/about' ? 'about-banner' : ''}`}>
-        {location.pathname === '/' ? (
+      <div className={`Section1 ${location.pathname === '/home' ? 'home-banner' : location.pathname === '/about' ? 'about-banner' : ''}`}>
+        {location.pathname === '/home' ? (
           <>
             <p>Chez vous, partout et ailleurs</p>
             <img src={homeImage} alt="Accueil" className="background-image" />
