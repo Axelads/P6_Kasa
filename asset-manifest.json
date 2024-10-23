@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/P6_Kasa/static/css/main.db7e2d1d.css",
+    "main.js": "/P6_Kasa/static/js/main.2eb25653.js",
+    "static/media/Image_source2.png": "/P6_Kasa/static/media/Image_source2.abab3f12f4cb82f1dfa1.png",
+    "static/media/Background_accueil.png": "/P6_Kasa/static/media/Background_accueil.d00ae7dd3ef927bb988d.png",
+    "index.html": "/P6_Kasa/index.html",
+    "main.db7e2d1d.css.map": "/P6_Kasa/static/css/main.db7e2d1d.css.map",
+    "main.2eb25653.js.map": "/P6_Kasa/static/js/main.2eb25653.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db7e2d1d.css",
+    "static/js/main.2eb25653.js"
+  ]
+}
