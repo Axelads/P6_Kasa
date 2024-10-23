@@ -21,7 +21,7 @@ $transition-timing: 0.6s ease;
     background-color: $background-color-collapse;
     cursor: pointer;
     border-radius: 5px;
-    position: relative; /* Pour que le header ne soit pas affecté par l'ouverture */
+    position: relative;
 
     h3 {
       margin: 0;
@@ -74,7 +74,18 @@ $transition-timing: 0.6s ease;
 
 .collapse-about {
   @extend .collapse-common; 
-  max-width: 1023px; 
+  max-width: 82%; 
+}
+
+@media (max-width: 768px) {
+  .content-abouts {
+    align-items: normal;
+  }
+
+  .collapse-about {
+    max-width: none; /* Supprime le max-width défini précédemment */
+    width: 100%; /* Assure que le collapse prend bien toute la largeur */
+  }
 }
 
 /* Collapse pour la page Logement */
@@ -92,7 +103,7 @@ $transition-timing: 0.6s ease;
 }
 
 
-@media (max-width: 375px) {
+@media (max-width: 768px) {
   .content-logements {
     flex-direction: column; 
     gap: 10px;

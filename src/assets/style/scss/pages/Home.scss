@@ -44,17 +44,17 @@
 }
 
 .Gallery {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Aligne 3 cards par ligne */
-  grid-gap: 20px; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; 
   margin-top: 25px;
   padding: 35px; 
-  justify-items: center; /* Centre les cards dans la grille */
+  justify-items: center; 
   border-radius: 25px;
   background-color: #F6F6F6;
 
-  @media (max-width: 375px) {
-    grid-template-columns: 1fr; /* Affiche 1 card par ligne sur mobile */
+  @media (max-width: 768px) {
+    
     padding: 0px;
     background-color: transparent;
   }

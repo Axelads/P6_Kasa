@@ -1,4 +1,6 @@
 {
+  "homepage": "https://axelads.github.io/P6_Kasa/",
+  
   "name": "projet6_kasa",
   "version": "0.1.0",
   "private": true,
@@ -20,7 +22,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-css": "sass src/assets/style/index.scss src/assets/style/index.css --no-source-map",
-    "watch-css": "sass --watch src/assets/style/index.scss:src/assets/style/index.css"
+    "watch-css": "sass --watch src/assets/style/index.scss:src/assets/style/index.css",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.2.0",
     "sass": "^1.79.4"
   }
 }

@@ -24,7 +24,7 @@ const Logement = () => {
 
   // Fonction pour vérifier la taille de l'écran
   const handleResize = () => {
-    setIsMobileView(window.matchMedia("(max-width: 375px)").matches);
+    setIsMobileView(window.matchMedia("(max-width: 768px)").matches);
   };
 
   useEffect(() => {
