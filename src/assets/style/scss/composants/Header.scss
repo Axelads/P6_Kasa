@@ -54,13 +54,23 @@
     }
   }
 
+  @media (max-width: 768px) {
+      li a {
+      text-transform: uppercase;
+      font-weight: 500 !important;
+      font-size: 20px;
+    }
+  }
+
+
   @media (max-width: 500px) {
     .imgLogoHeader {
       max-width: 140px;
     }
 
     li a {
-      font-size: 20px;
+      font-size: 16px;
+      text-transform: uppercase;
     }
   }
 
